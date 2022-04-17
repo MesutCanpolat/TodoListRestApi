@@ -5,6 +5,7 @@ from rest_framework import viewsets
 from rest_framework import permissions
 
 from todos.models import Todo
+from todos.pagenations import StandardResultsSetPagination
 from todos.serializer import TodoSerializer
 
 
@@ -15,3 +16,4 @@ class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
     permission_classes = [permissions.IsAdminUser]
+    pagination_class = StandardResultsSetPagination
